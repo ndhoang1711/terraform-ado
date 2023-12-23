@@ -29,7 +29,7 @@ variable "prefix" {
 
 variable "az_location" {
   type    = string
-  default = "eastus"
+  default = "southeastasia"
 }
 
 variable "az_container_name" {
