@@ -20,7 +20,7 @@ variable "ado_github_pat" {
   type        = string
   description = "Personal authentication token for GitHub repo"
   sensitive   = true
-  default = "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"
+  default = "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"
 }
 
 variable "prefix" {
