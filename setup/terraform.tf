@@ -14,10 +14,5 @@ terraform {
     }
   }
 
-  backend "remote" {
-    organization = "hoang-in-the-cloud"
-    workspaces {
-      name = "terraform-ado"
-    }
-  }
+
 }

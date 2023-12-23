@@ -1,6 +1,7 @@
 variable "ado_org_service_url" {
   type        = string
   description = "Org service url for Azure DevOps"
+  default = "https://dev.azure.com/ndhoang1117"
 }
 
 variable "ado_github_repo" {
@@ -19,6 +20,7 @@ variable "ado_github_pat" {
   type        = string
   description = "Personal authentication token for GitHub repo"
   sensitive   = true
+  default = "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"
 }
 
 variable "prefix" {
@@ -47,21 +49,25 @@ variable "az_state_key" {
 variable "az_client_id" {
   type        = string
   description = "Client ID with permissions to create resources in Azure, use env variables"
+  default = "379567d6-0c36-40ab-ac67-127c6b72084a"
 }
 
 variable "az_client_secret" {
   type        = string
   description = "Client secret with permissions to create resources in Azure, use env variables"
+  default = "Txc8Q~N5WWGefnXmFxSPG.o6hQZVCSBzwQIBJb.h"
 }
 
 variable "az_subscription" {
   type        = string
   description = "Client ID subscription, use env variables"
+  default = "ff064279-f4bc-47a0-a8be-58ce33a49e9f"
 }
 
 variable "az_tenant" {
   type        = string
   description = "Client ID Azure AD tenant, use env variables"
+  default = "e9a05115-63e5-4a7c-925e-7fbc07780c98"
 }
 
 resource "random_integer" "suffix" {
