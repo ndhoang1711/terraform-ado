@@ -9,12 +9,15 @@ terraform {
         version = ">=0.1.0"
     }
     git={
-        source = "intergration/github"
+        source = "intergrations/github"
         version = "~>4.0"
     }
   }
 
   backend "remote" {
-    
+    organization = "hoang-in-the-cloud"
+    workspaces {
+      name = "terraform-ado"
+    }
   }
 }
