@@ -1,7 +1,7 @@
 # Azure DevOps pipeline for Azure deployment
 
 variables:
-- group: terraform-tuesdays
+- group: terraform-ado
 
 trigger:
   branches:
@@ -9,7 +9,7 @@ trigger:
     - main
   paths:
     include:
-    - 2021-05-11-ADO/vnet
+    - vnet
 
 stages:
 - stage: Validate
@@ -31,7 +31,7 @@ stages:
         ARM_SAS_TOKEN: $(sas_token)
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
         commandOptions: '-backend-config=storage_account_name=$(storageaccount) -backend-config=container_name=$(container_name) -backend-config=key=$(key)'
         backendType: 'selfConfigured'
 
@@ -61,7 +61,7 @@ stages:
         ARM_SAS_TOKEN: $(sas_token)
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
         commandOptions: '-backend-config=storage_account_name=$(storageaccount) -backend-config=container_name=$(container_name) -backend-config=key=$(key)'
         backendType: 'selfConfigured'
 
@@ -76,7 +76,7 @@ stages:
         ARM_TENANT_ID: $(az_tenant)
       inputs:
         command: 'plan'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
 
 # Approve
 - stage: Approve
@@ -89,7 +89,7 @@ stages:
     - task: ManualValidation@0
       timeoutInMinutes: 60
       inputs:
-        notifyUsers: 'ned@nedinthecloud.com'
+        notifyUsers: 'hoang.nguyen@scenthealing.online'
         instructions: 'Review the plan in the next hour'
 
 - stage: Apply
@@ -111,7 +111,7 @@ stages:
         ARM_SAS_TOKEN: $(sas_token)
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
         commandOptions: '-backend-config=storage_account_name=$(storageaccount) -backend-config=container_name=$(container_name) -backend-config=key=$(key)'
         backendType: 'selfConfigured'
 
@@ -126,5 +126,5 @@ stages:
         ARM_TENANT_ID: $(az_tenant)
       inputs:
         command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
         commandOptions: '-auto-approve'
