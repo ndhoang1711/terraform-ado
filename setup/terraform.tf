@@ -6,7 +6,7 @@ terraform {
     }
     azuredevops={
         source = "microsoft/azuredevops"
-        version = ">=3.46.0"
+        version = ">=0.1.0"
     }
      azuread = {
       source = "hashicorp/azuread"
