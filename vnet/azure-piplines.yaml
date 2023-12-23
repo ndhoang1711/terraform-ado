@@ -40,7 +40,7 @@ stages:
       displayName: Validate Config
       inputs:
         command: 'validate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/2021-05-11-ADO/vnet'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/vnet'
     
 - stage: Plan
   displayName: Plan
