@@ -8,6 +8,10 @@ terraform {
         source = "microsoft/azuredevops"
         version = ">=0.1.0"
     }
+     azuread = {
+      source = "hashicorp/azuread"
+      version = "~> 1.0"
+    }
   }
 
   backend "remote" {
