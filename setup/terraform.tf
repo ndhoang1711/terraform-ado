@@ -8,10 +8,6 @@ terraform {
         source = "microsoft/azuredevops"
         version = ">=0.1.0"
     }
-    git={
-        source = "intergrations/github"
-        version = "~>4.0"
-    }
   }
 
   backend "remote" {
